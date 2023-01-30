@@ -1,0 +1,63 @@
+.update-content {
+  width: 80%;
+  margin: auto;
+  padding: 2%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.secondary-heading {
+  margin-top: 1%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+}
+
+form input {
+  height: 7vh;
+  margin: 7px 0;
+  border: 2px solid #f4f4f4;
+  padding-left: 10px;
+}
+
+.btn-add {
+  border: 1px solid black;
+  font-weight: 500;
+  margin-top: 20px;
+  margin: 15px auto 0 auto;
+  font-size: 1.1rem;
+  margin-right: 10px;
+}
+
+.btn-add:hover {
+  background-color: green;
+  color: white;
+}
+
+.btn-home:hover {
+  background-color: black;
+  color: white;
+}
+
+.social-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 7vh;
+  margin-top: 10%;
+}
+
+.social-logos .logo {
+  margin: 0 2%;
+}
+
+.social-logos .logo a {
+  color: #084298;
+}
+
+.social-logos .logo a:hover {
+  color: #94bcf5;
+}

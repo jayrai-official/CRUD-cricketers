@@ -1,0 +1,47 @@
+{% extends 'databook/base.html' %}
+{% load static %}
+
+{% block title %}
+Update
+{% endblock title %}
+
+{% block css %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'databook/css/update.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div class="update-content">
+
+    <h3 class="secondary-heading alert alert-primary text-center">Update {{data.name}}'s data</h3>
+    
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="name" id="name" placeholder="Enter Cricketer's name" value="{{data.name}}">
+    <input type="text" name="origin-country" id="origin-country" placeholder="Enter Cricketer's origin country" value="{{data.country}}">
+    <input type="number" name="jersey-no" id="jersey-no" placeholder="Enter jersey number" value="{{data.jersey_no}}">
+    <div class="actions">
+        <button class="btn btn-add btn-save" type="submit">save data</button>
+        <a href="{% url 'home' %}" class="btn btn-add btn-home">Back to home</a>
+    </div>
+</form>
+<div class="social-logos">
+    <div class="insta logo">
+        <a href="https://www.instagram.com/jayrai_official/?igshid=YmMyMTA2M2Y%3D" target="_blank">
+            <i class="fa-brands fa-instagram fa-3x"></i>
+        </a>
+    </div>
+    <div class="linkedin logo">
+        <a href="https://www.linkedin.com/in/jay-rai-150b86249/" target="_blank">
+            <i class="fa-brands fa-linkedin fa-3x"></i>
+        </a>
+    </div>
+    <div class="github logo">
+        <a href="https://github.com/jayrai-official" target="_blank">
+            <i class="fa-brands fa-github fa-3x"></i>
+        </a>
+    </div>
+</div>
+
+</div>
+{% endblock content %}

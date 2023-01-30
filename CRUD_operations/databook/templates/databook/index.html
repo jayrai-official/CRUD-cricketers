@@ -1,0 +1,65 @@
+{% extends 'databook/base.html' %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block css %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'databook/css/style.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div class="boxes">
+
+    <div class="left-box">
+        <h3 class="alert alert-primary text-center">Register Cricketer</h3>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="name" id="name" placeholder="Enter Cricketer's name" required>
+        <input type="text" name="origin-country" id="origin-country" placeholder="Enter Cricketer's origin country" required>
+        <input type="number" name="jersey-no" id="jersey-no" placeholder="Enter jersey number" required>
+        <button class="btn btn-add" type="submit">Register Cricketer</button>
+    </form>
+</div>
+<div class="right-box">
+    <h3 class="alert alert-primary text-center">Registered Cricketers</h3>
+    
+            {% comment %} put an If statement of warning {% endcomment %}
+        {% if cricketers %}
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Country</th>
+                    <th scope="col">Jersey No</th>
+                    <th scope="col">Actions</th>
+                </tr>
+                </thead>
+            <tbody>
+            {% for player in cricketers %}
+            <tr>
+                <th scope="row">{{player.id}}</th>
+                <td>{{player.name}}</td>
+                <td>{{player.country}}</td>
+                <td>{{player.jersey_no}}</td>
+                <td class="table-actions">
+                    <a href="{% url 'update' player.id %}" class="btn btn-edit">Edit</a>
+                    <form action={% url 'delete' player.id %} method="post">
+                        {% csrf_token %}
+                        <button class="btn btn-delete" type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor%}
+        {% else %}
+            <h3 class="text-center alert alert-danger">No data available</h3>
+        {% endif %}
+        </tbody>
+      </table>
+</div>
+</div>
+{% endblock content %}
